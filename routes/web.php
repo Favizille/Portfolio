@@ -42,10 +42,15 @@ Route::post('/login', [LoginController::class, 'loginAdmin'])->name('loggingIn')
 Route::get('/service/add', [ServiceController::class, 'addService'])->name('addService');
 Route::post('/service/create', [ServiceController::class, 'createService'])->name('service.create');
 Route::get('/services', [ServiceController::class, 'getServices'])->name('services.all');
+Route::get('/services/{serviceId}', [ServiceController::class, 'getService'])->name('service.get');
+Route::get('/services/edit/{serviceId}', [ServiceController::class, 'editServices'])->name('service.edit');
+Route::put('/service/update/{serviceID}', [ServiceController::class, 'updateService'])->name('service.update');
+Route::delete('/service/delete/{serviceId}', [ServiceController::class, 'deleteService'])->name('service.delete');
 
 
 
 // To do list
-// 2. Image CRUD for Project
-// 3. Service CRUD
+// 2. Image CRUD for Project DONE
+// 3. Service CRUD DONE
+// 3. Service Blade files
 // 4. Notification CRUD

@@ -34,4 +34,32 @@ class ServiceController extends Controller
         
         return view('Admin.services', ["services" => $this->serviceRepository->getServices()]);
     }
+
+    public function getService($serviceId){
+       if(! $service = $this->serviceRepository->getService($serviceId)){
+            return redirect()->back()->withErrors('Cannot find service');
+       }
+
+       return view('Admin/service');
+    }
+
+    public function editServices($serviceId){
+        return view('Admin/editService', ["service" => $this->serviceRepository->getService($serviceId)]);
+    }
+
+    public function updateService($serviceId, Request $request){
+        if(!$this->serviceRepository->updateService($serviceId, $request->validated())){
+            return redirect()->back()->withError("Update failed");
+        }
+
+        return redirect()->route('services.all')->with('message', "Service was edited succesfully");
+    }
+
+    public function deleteService($serviceID){
+        if(!$this->serviceRepository->deleteService($serviceID)){
+            return redirect()->route("service.all")->withErrors("Couldn't Delete Service");
+        }
+
+        return redirect()->route("service.all")->with("message", 'service Deleted Succesfully');
+    }
 }
