@@ -71,6 +71,7 @@
                                 <tr>
                                     <th> Name </th>
                                     <th> Date Added</th>
+                                    <th class="text-center"> Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,13 +79,13 @@
                                     <tr>
                                         <td>{{$service->name}}</td>
                                         <td>{{$service->created_at}}</td>
-                                        <td>
-                                            <button class='btn btn-secondary px-4'>More</button>
+                                        <td class="row">
+                                            <a href="{{route('service.edit')}}" class='btn btn-success px-1 col-3 mx-3'>view</a>
+                                            <button class='btn btn-secondary px-1 col-3 mx-3'>edit</button>
+                                            <button class='btn btn-danger px-1 col-3 mx-3'>delete</button>
                                         </td>
+                                    
                                     </tr>
-                                    {{-- <tr>
-                                        <td style="width:20px;">{{$service->description}}</td>
-                                    </tr> --}}
                                 @endforeach
                             </tbody>
                             </table>
