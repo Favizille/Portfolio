@@ -6,7 +6,7 @@
         <li class="nav-item nav-category">Main</li>
 
         <li class="nav-item ">
-            <a class="nav-link" data-toggle="collapse" href="{{ route('dashbaord.admin')}}" >
+            <a class="nav-link" data-toggle="collapse" href="{{ route('dashboard.admin')}}" >
             <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
             <span class="menu-title">Project</span>
             </a>
@@ -44,10 +44,8 @@
             <div class="page-header row ">
             <h3 class="page-title col-5"> Services</h3>
     
-            <form action="" method="GET">
-                @csrf
-                <button class="btn btn-success shadow">Add Service</button>
-            </form>
+        
+            <a href="{{route('service.add')}}" class="btn btn-success shadow px-4"> Add</a>
             </div>
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
@@ -80,9 +78,9 @@
                                         <td>{{$service->name}}</td>
                                         <td>{{$service->created_at}}</td>
                                         <td class="row">
-                                            <a href="{{route('service.edit')}}" class='btn btn-success px-1 col-3 mx-3'>view</a>
-                                            <button class='btn btn-secondary px-1 col-3 mx-3'>edit</button>
-                                            <button class='btn btn-danger px-1 col-3 mx-3'>delete</button>
+                                            <a href="{{route('service.get', $service->id)}}" class='btn btn-success px-1 col-3 mx-3'>view</a>
+                                            <form action="{{route('service.edit', $service->id)}}" method="GET" class='btn btn-secondary p-0 mx-5 col-3'> @csrf  <button class="btn btn-secondary">edit</button></form>
+                                            <form action="{{route('service.delete', $service->id)}}" method="POST" class='btn btn-danger p-0 col-3'> @csrf @method('DELETE')  <button class='btn btn-danger'>delete</button></form>
                                         </td>
                                     
                                     </tr>

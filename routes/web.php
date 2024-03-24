@@ -28,10 +28,10 @@ Route::get('/portfolio/update/{projectID}', [PortfolioController::class, 'update
 
 // Admin Routes
 Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login', [LoginController::class, 'loginAdmin'])->name('loggingIn');
+Route::post('/loggingin', [LoginController::class, 'loginAdmin'])->name('loggingIn');
 
 // Route::middleware('auth')->group(function(){
-    Route::get('/admindashboard', [ProjectController::class, 'adminDashboard'])->name('dashbaord.admin');
+    Route::get('/admindashboard', [ProjectController::class, 'adminDashboard'])->name('dashboard.admin');
     Route::get('/project', [ProjectController::class, 'addProject'])->name('project.add');
     Route::post('/project/create', [ProjectController::class, 'createProject'])->name('project.create');
     Route::put('/project/update/{projectID}', [ProjectController::class, 'updateProject'])->name('project.update');
@@ -39,7 +39,7 @@ Route::post('/login', [LoginController::class, 'loginAdmin'])->name('loggingIn')
 // });
 
 //Service Route
-Route::get('/service/add', [ServiceController::class, 'addService'])->name('addService');
+Route::get('/add/service', [ServiceController::class, 'addService'])->name('service.add');
 Route::post('/service/create', [ServiceController::class, 'createService'])->name('service.create');
 Route::get('/services', [ServiceController::class, 'getServices'])->name('services.all');
 Route::get('/services/{serviceId}', [ServiceController::class, 'getService'])->name('service.get');
