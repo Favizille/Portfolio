@@ -40,7 +40,7 @@ class ServiceController extends Controller
             return redirect()->back()->withErrors('Cannot find service');
        }
 
-       return view('Admin/service');
+       return view('Admin/service', ["service"=> $service]);
     }
 
     public function editServices($serviceId){
@@ -60,6 +60,6 @@ class ServiceController extends Controller
             return redirect()->route("service.all")->withErrors("Couldn't Delete Service");
         }
 
-        return redirect()->route("service.all")->with("message", 'service Deleted Succesfully');
+        return redirect()->route("services.all")->with("message", 'service Deleted Succesfully');
     }
 }

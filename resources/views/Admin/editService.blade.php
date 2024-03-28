@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -11,7 +10,7 @@
 </head>
 <body>
   
-  <form action='{{route('create.service')}}' method="POST" class="row px-5 mx-5 my-4">
+  <form action='{{route('service.create')}}' method="POST" class="row px-5 mx-5 my-4">
     @csrf
 
     @if(session()->has('message'))
@@ -31,12 +30,12 @@
     <h2 class="py-4 text-center text-success">Add Service</h2>
   
     <div data-mdb-input-init class="form-outline mb-4">
-      <input type="text" class="form-control" name="name"/>
+      <input type="text" class="form-control" name="name" value="{{old('name', $service->name)}}"/>
       <label class="form-label" for="form3Example3">Name</label>
     </div>
   
     <div data-mdb-input-init class="form-outline mb-4">
-      <textarea type="text" class="form-control" name="description" row="5" column="50"></textarea>
+      <textarea type="text" class="form-control" name="description" row="5" column="50"> {{$service->descripton}} </textarea>
       <label class="form-label" for="form3Example4">Description</label>
     </div>
   

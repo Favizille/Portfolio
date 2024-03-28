@@ -5,10 +5,9 @@ use App\Models\User;
 
 class LoginRepository
 {
-    protected $user;
-    public function __construct(User $user) {}
+    public function __construct(protected User $user) {}
 
-    public function login($data){
-        auth()->attempt($data);
+    public function login(array $data):bool{
+        return auth()->attempt($data);
     }
 }
