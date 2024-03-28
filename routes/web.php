@@ -35,15 +35,15 @@ Route::post('/loggingin', [LoginController::class, 'loginAdmin'])->name('logging
     Route::get('/project', [ProjectController::class, 'addProject'])->name('project.add');
     Route::post('/project/create', [ProjectController::class, 'createProject'])->name('project.create');
     Route::put('/project/update/{projectID}', [ProjectController::class, 'updateProject'])->name('project.update');
+    Route::post('/service/create', [ServiceController::class, 'createService'])->name('create.service');
     Route::delete('/project/delete/{projectID}', [ProjectController::class, 'deleteProject'])->name('project.delete');
-// });
-
+    // });
+    
 //Service Route
 Route::get('/add/service', [ServiceController::class, 'addService'])->name('service.add');
-Route::post('/service/create', [ServiceController::class, 'createService'])->name('service.create');
 Route::get('/services', [ServiceController::class, 'getServices'])->name('services.all');
-Route::get('/services/{serviceId}', [ServiceController::class, 'getService'])->name('service.get');
-Route::get('/services/edit/{serviceId}', [ServiceController::class, 'editServices'])->name('service.edit');
+Route::get('/service/{serviceId}', [ServiceController::class, 'getService'])->name('service.get');
+Route::get('/service/edit/{serviceId}', [ServiceController::class, 'editServices'])->name('service.edit');
 Route::put('/service/update/{serviceID}', [ServiceController::class, 'updateService'])->name('service.update');
 Route::delete('/service/delete/{serviceId}', [ServiceController::class, 'deleteService'])->name('service.delete');
 

@@ -11,7 +11,7 @@
 </head>
 <body>
   
-  <form action='{{route('service.create')}}' method="POST" class="row px-5 mx-5 my-4">
+  <form action='{{route('create.service')}}' method="POST" class="row px-5 mx-5 my-4">
     @csrf
 
     @if(session()->has('message'))
