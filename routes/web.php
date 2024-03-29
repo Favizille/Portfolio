@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProjectController;
@@ -39,7 +40,7 @@ Route::post('/loggingin', [LoginController::class, 'loginAdmin'])->name('logging
     Route::delete('/project/delete/{projectID}', [ProjectController::class, 'deleteProject'])->name('project.delete');
     // });
     
-//Service Route
+//Service Routes
 Route::get('/add/service', [ServiceController::class, 'addService'])->name('service.add');
 Route::get('/services', [ServiceController::class, 'getServices'])->name('services.all');
 Route::get('/service/{serviceId}', [ServiceController::class, 'getService'])->name('service.get');
@@ -47,6 +48,9 @@ Route::get('/service/edit/{serviceId}', [ServiceController::class, 'editServices
 Route::put('/service/update/{serviceID}', [ServiceController::class, 'updateService'])->name('service.update');
 Route::delete('/service/delete/{serviceId}', [ServiceController::class, 'deleteService'])->name('service.delete');
 
+// Notification Routes
+Route::post('/message/send',[ContactController::class, 'sendMessage'])->name('message.send');
+Route::get('/mark-as-read', [ContactController::class, 'markAsRead'])->name('mark-as-read');
 
 
 // To do list
